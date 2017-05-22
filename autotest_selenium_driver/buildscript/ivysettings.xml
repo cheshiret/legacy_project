@@ -1,0 +1,14 @@
+<ivysettings>
+	<property name="selenium.version" value="2.32.0" override="false"/> 
+	<property name="ivy.os.classifier" value="windows"/>
+	<settings defaultResolver="chained"/>
+	<resolvers>
+		<chain name="chained" returnFirst="true">
+			<filesystem name="libraries">
+				<artifact pattern="${ivy.default.ivy.user.dir}/repository/[artifact]-[revision](-[classifier]).[ext]"/>
+			</filesystem>
+			<ibiblio name="public" m2compatible="true"/>
+				
+		</chain>
+	</resolvers>
+</ivysettings>

@@ -1,0 +1,2 @@
+[2014-07-09 14:21:37,635] INFO  (DefaultHttpClient)                 - I/O exception (java.net.SocketException) caught when processing request: Software caused connection abort: recv failed
+[2014-07-09 14:21:37,636] INFO  (DefaultHttpClient)                 - Retrying request

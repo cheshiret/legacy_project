@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="/opt/automation/functest/functest4_core" default="build" name="functest4_core" xmlns:ivy="antlib:org.apache.ivy.ant" >
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>  
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+    <property name="findbugs.home" value="/usr/findbugs-1.3.9" />
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <property name="src" location="java"/>
+  	<property name="build" location="bin"/>
+  	<property name="lib.dir" value="lib" />
+	<property name="extlib.dir" value="${src}/extlib" />
+	<property name="dist" value="dist" />
+	<property name="deployto" value="/mnt/automation/functest4" />
+	<property name="ivy.file" value="buildscript/ivy.xml" />
+	<property name="ivysettings.file" value="buildscript/ivysettings.xml" />
+	<property name="version.file" value="${basedir}/version.properties"/>
+	<property name="proxy.host" value="awotorproxy01.reserveamerica.com" />
+	<property name="proxy.port" value="8080" />
+
+	<path id="core.classpath">
+		<fileset dir="${lib.dir}" includes="**/*.jar" />
+		<fileset dir="${extlib.dir}" includes="**/*.jar" />
+	</path>
+
+	<target name="probe-proxy">
+		    <condition property="proxy.enabled">
+		      <and>
+		        <isset property="proxy.host"/>
+		        <isreachable host="${proxy.host}"/>
+		      </and>
+		    </condition>
+		  </target>
+
+		  <target name="proxy" depends="probe-proxy" if="proxy.enabled">
+		    <property name="proxy.user" value=""/>
+		    <property name="proxy.pass" value=""/>
+		    <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}"
+		      proxyuser="${proxy.user}" proxypassword="${proxy.pass}"/>
+		  </target>
+	
+    <target name="resolve" depends="proxy" description="resolve dependencies with ivy">
+		<ivy:settings id="ivy.instance" file="${ivysettings.file}" />
+		<ivy:resolve  file="${ivy.file}" />
+		<ivy:retrieve sync="true" type="jar,bundle" pattern="${extlib.dir}/[artifact].[ext]" />
+    </target>
+    
+    <target depends="resolve" name="init"/>
+
+    <target name="clean">
+        <delete quiet="true">
+            <fileset dir="${build}" includes="**/*.class"/>
+        </delete>
+    </target>
+
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac 	fork="true"
+		debug="true" 
+		debuglevel="${debuglevel}" 
+		srcdir="${src}" 
+		destdir="${build}" 
+		source="${source}" 
+		target="${target}"
+		memoryinitialsize="512m"
+		memorymaximumsize="512m"
+		includeantruntime="false" >
+            <classpath refid="core.classpath"/>
+        </javac>
+    </target>
+
+	<!--pack functest4_core build into a jar-->
+	<target name="jar" depends="build,version">
+		<copy file="${basedir}/version.properties" todir="${build}"/>
+		<jar destfile="${dist}/functest4_core_${version}.jar" 
+			basedir="${build}" 
+			includes="com/activenetwork/qa/testapi/**/*.class, version.properties"
+			excludes="**/playground/**, **/test/**"
+		/>
+	</target>
+	
+    <target depends="build-project" name="findbugs" >
+        <findbugs home="${findbugs.home}"
+              output="xml"
+              outputFile="testdriver_findbugs.xml" >
+            <sourcePath path="${src}" />
+            <class location="${build}" />
+        </findbugs>
+    </target>
+	
+	<target name="deploy" depends="jar">
+		<copy includeemptydirs="false" flatten="true" todir="${deployto}/lib/core">
+			<fileset dir="${lib.dir}" includes="**/*.jar" />
+			<fileset dir="${extlib.dir}" includes="**/*.jar" />
+		</copy>
+		<copy file="${dist}/functest4_core_${version}.jar" todir="${deployto}"/>
+		<propertyfile file="${deployto}/version.properties">
+			<entry key="core.version" value="${version}"/>
+			<entry key="core.date"	value="now" type="date"/>
+			<entry key="core.svn.revision" value="${svn.revision}"/>
+		</propertyfile>
+	</target>
+	
+	<!--generate functest4_core build number in format: <major>.<minor>.<revision>-->
+	<target name="version">
+		<antfetch target="svn.revision" return="svn.revision"/>
+		<if>
+			<isset property="version"/>
+			<then>
+				<fail message="Version has been preset to ${version}"/>
+			</then>
+		</if>
+		<property name="ver" value="revision"/>
+		
+		<if>
+			<equals arg1="${ver}" arg2="revision"/>
+			<then>
+				<propertyfile file="${version.file}">	
+					<entry key="major.number" default="04" operation="=" type="int"/>
+					<entry key="minor.number" default="00" operation="=" type="int"/>
+					<entry key="build.number" default="00" operation="+" type="int"/>
+					<entry key="svn.revision" value="${svn.revision}"/>
+					<entry key="build.date" value="now" type="date" />
+				</propertyfile>	
+			</then>
+			<elseif>
+				<equals arg1="${ver}" arg2="minor"/>
+				<then>	
+					<propertyfile file="${version.file}">
+						<entry key="major.number" default="04" operation="=" type="int"/>
+						<entry key="minor.number" default="00" operation="+" type="int"/>
+						<entry key="build.number" value="00" operation="=" type="int"/>
+						<entry key="svn.revision" value="${svn.revision}"/>
+						<entry key="build.date" value="now" type="date" />
+					</propertyfile>	
+				</then>
+			</elseif>
+			<elseif>
+				<equals arg1="${ver}" arg2="major"/>
+				<then>	
+					<propertyfile file="${version.file}">
+						<entry key="major.number" default="04" operation="+" type="int"/>
+						<entry key="minor.number" value="00" operation="=" type="int"/>
+						<entry key="build.number" value="00" operation="=" type="int"/>
+						<entry key="svn.revision" value="${svn.revision}"/>
+						<entry key="build.date" value="now" type="date" />
+					</propertyfile>	
+				</then>
+			</elseif>
+			<else>
+				<fail message="The version part ${ver} is not expected revision/major"/>
+			</else>			
+		</if>
+			
+		<property file="${version.file}"/>
+		<property name="version" value="${major.number}.${minor.number}.${build.number}"/>
+		<echo>Version: ${version}</echo>
+	</target>
+	
+	<target name="svn.revision">
+		<exec executable="svn" output="${basedir}/svninfo.xml" failonerror="true">
+			<arg line="info --xml"/>
+		</exec>
+		<xmlproperty file="${basedir}/svninfo.xml" collapseattributes="true"/>
+		<property name="svn.revision" value="${info.entry.commit.revision}"/>
+		<echo>SVN revision: ${svn.revision}</echo>
+	</target>
+	
+
+</project>

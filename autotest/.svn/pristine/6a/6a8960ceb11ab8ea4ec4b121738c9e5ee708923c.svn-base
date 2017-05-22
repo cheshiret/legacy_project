@@ -1,0 +1,52 @@
+package com.activenetwork.qa.awo.util;
+
+
+import com.activenetwork.qa.testapi.util.TestProperty;
+
+
+/**
+ * 
+ * @Description: CSV utility class 
+ * @Preconditions: With test property settings
+
+  
+ * @author tchen
+ * @Date  Sep 29, 2014
+ */
+
+
+public class CSVUtil {
+	
+	public static boolean containsField () {
+		boolean containsfields = TestProperty.getBooleanProperty("csv.contain.field",true);
+		if (containsfields) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static boolean returnResult () {
+		boolean returnresult = TestProperty.getBooleanProperty("csv.result.return",true);
+		if (returnresult) {
+			return true;
+		}
+		else {
+			return false;
+		}			
+	}
+	
+	public static String fieldType() {
+		String type = TestProperty.getProperty("csv.field.type");
+		if (type.contains("col")) {
+			return "column";
+		}
+		else {
+			return "row";
+		}					
+	}
+	
+	
+}
+

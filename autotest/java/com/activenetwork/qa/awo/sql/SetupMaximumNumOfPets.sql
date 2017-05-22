@@ -1,0 +1,13 @@
+ALTER SESSION SET CURRENT_SCHEMA=live_NY;
+
+declare
+        cnt             VARCHAR(30);
+    BEGIN
+       SELECT COUNT(*) into cnt FROM ALL_D_ATTR WHERE ATTR_ID = 777;
+       IF cnt=0 THEN
+          INSERT INTO ALL_D_ATTR (CONTRACT, NOTACTIVE_CNTR, ATTR_NAME, ATTR_DSCR, ATTR_DISCRIM, ATTR_ID, ATTR_CD, ATTR_TYPE_ID, MAX_VALUE, MIN_VALUE, ATTR_CAT, DISPLAY_NAME, ACTIVE_IND, DELETED_IND, ORMS_SEQ_NO, DISPLAY_SEQ_NO, WEB_SEARCHABLE_IND, WEB_USAGE_IND, FIELD_SEARCHABLE_IND, CALL_SEARCHABLE_IND, DEFAULT_VALUE, RENDERER, VISIBLE_IND, ATTR_GROUP )
+ VALUES ('CNTR', '0', 'Maximum Number Of Pets', 'Maximum Number Of Pets', '0', 777, 'Maximum Number Of Pets', 7, null, 0, 'Restriction', 'Maximum Number Of Pets', '1', '0', 310, 185, '1', '0', '1', '1', NULL, 'NumericRenderer', '1', 'Pets'); 
+        END IF;
+    END;
+/
+commit;

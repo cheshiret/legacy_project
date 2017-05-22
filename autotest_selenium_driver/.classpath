@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/functest4_core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ormsclient"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/functest4_selenium_driver/lib/autoitx.jar"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=functest4_selenium_driver&amp;ivyXmlPath=buildscript%2Fivy.xml&amp;confs=*&amp;ivySettingsPath=buildscript%2Fivysettings.xml&amp;loadSettingsOnDemand=false&amp;ivyUserDir=&amp;propertyFiles="/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

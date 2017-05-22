@@ -1,0 +1,3 @@
+alter session set current_schema=live_NC;
+update I_ACTV_SVC_TYPE set Call_searchable_ind=1 where cat_id=1;
+commit;

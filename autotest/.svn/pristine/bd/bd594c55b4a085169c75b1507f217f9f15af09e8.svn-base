@@ -1,0 +1,64 @@
+package com.activenetwork.qa.awo.util;
+
+import au.com.bytecode.opencsv.CSVReader;
+import au.com.bytecode.opencsv.CSVWriter;
+import au.com.bytecode.opencsv.bean.ColumnPositionMappingStrategy;
+import au.com.bytecode.opencsv.*;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.List;
+import java.sql.ResultSet ;
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+
+import com.activenetwork.qa.awo.util.MockResultSetMetaData;
+
+
+
+public class CSVloader {
+	public static ArrayList<List<String>> tableArray (String file_loc) {
+		try {
+		ArrayList<List<String>> t = new ArrayList<List<String>>();			
+		List<String> list = new ArrayList<String>();
+		CSVReader reader = new CSVReader(new FileReader(file_loc));			
+		String [] nextLine = null;		
+		
+		int i = 0;
+		int k = 0;
+		while ((nextLine = reader.readNext()) != null) {
+			String[] stringArray = list.toArray(new String[nextLine.length]);
+			for (int j = 0; j < nextLine.length; j++) {
+				stringArray[j] = nextLine[j];
+                k = j + 1;
+                
+			}
+			List<String> t2 = Arrays.asList(stringArray);
+			t.add(t2);	
+			i ++ ;						
+		}
+		reader.close();
+//		System.out.println("Row # is: " + i);
+//		System.out.println("Column # is: " + k);
+		return t;
+		} catch (IOException e) {
+			System.out.println("Error!!!");
+			return null;
+		}		
+	}
+
+	public static int getRowNum () {
+		return 0;
+//		tableArray();
+//		return tableArray.length;
+	}
+	
+	public static int getColNum () {
+		return 0;
+//		tableArray();
+//		return tableArray.length;
+	}
+}
+

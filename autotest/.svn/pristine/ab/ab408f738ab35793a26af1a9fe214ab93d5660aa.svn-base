@@ -1,0 +1,89 @@
+#
+# This properties file contains all information needed for production sanity test
+#
+
+# Orms login information
+
+# this orms.filed will apply for field/venue/permit managers
+live.orms.fm.user=
+live.orms.fm.pw=
+
+live.orms.cm.user=
+live.orms.cm.pw=
+
+# Orms customer information
+live.customer.fName=Astra
+live.customer.lName=LoadTest
+live.customer.email=alt_00001@reserveamerica.com
+
+# Weg login information
+live.ra.email=alt_00001@reserveamerica.com
+live.ra.pw=83555016239863E2A67B331871F43862
+
+live.recgov.email=qa00146@reserveamerica.com
+live.recgov.pw=05B41551008C4CD29045969863551D1A
+
+live.bw.coop.email=qa00208@reserveamerica.com
+live.bw.coop.pw=05B41551008C4CD29045969863551D1A
+
+# Build Information
+web.build.version=
+orms.build.version=
+
+# Orms urls
+live.orms.url=https://orms.reserveamerica.com/
+live.orms.inv.url=https://orms-inv.reserveamerica.com/IndexOfLinks.do
+live.orms.fin.url=https://orms-fin.reserveamerica.com/IndexOfLinks.do
+live.orms.store.epay.url=https://storemgr.reserveamerica.com/services/EPaymentService
+live.orms.store.auth.url=https://storemgr.reserveamerica.com/services/StoreManagerAuthentication
+live.orms.store.inte.url=https://storemgr.reserveamerica.com/services/StoreManagerIntegrationService
+live.orms.venue.url=http://vm.reserveamerica.com/IndexOfLinks.do
+
+# Web urls
+live.web.ra.url=http://www.reserveamerica.com
+live.web.ra.security.url=https://www.reserveamerica.com
+live.web.recgov.url=http://www.recreation.gov
+live.web.recgov.security.url=https://www.recreation.gov
+live.web.bw.url=commercial.recreation.gov
+# bwcawcoop.recreation.gov
+
+live.web.co.url=coloradostateparks.reserveamerica.com
+live.web.ky.url=kentuckystateparks.reserveamerica.com
+live.web.ms.url=mississippistateparks.reserveamerica.com
+live.web.ne.url=nebraskastateparks.reserveamerica.com
+live.web.nh.url=newhampshirestateparks.reserveamerica.com
+live.web.ny.url=newyorkstateparks.reserveamerica.com
+live.web.ri.url=rhodeislandstateparks.reserveamerica.com
+live.web.sc.url=southcarolinaparks.reserveamerica.com
+live.web.wi.url=wisconsinstateparks.reserveamerica.com
+live.web.id.url=idahostateparks.reserveamerica.com
+live.web.hc.url=hearst.reserveamerica.com
+live.web.an.url=anonuevo.reserveamerica.com
+live.web.de.url=delawarestateparks.reserveamerica.com
+live.web.ut.url=utahstateparks.reserveamerica.com
+live.web.larc.url=www.larimercamping.com
+live.web.md.url=reservations.dnr.state.md.us
+live.web.nm.url=newmexicostateparks.reserveamerica.com
+live.web.ia.url=iowastateparks.reserveamerica.com
+live.web.in.url=indianastateparks.reserveamerica.com
+live.web.mt.url=montanastateparks.reserveamerica.com
+live.web.orng.url=orangecountyparks.reserveamerica.com
+live.web.fl.url=floridastateparks.reserveamerica.com
+live.web.nc.url=northcarolinastateparks.reserveamerica.com
+live.web.ga.url=gastateparks.reserveamerica.com
+
+#Bw Training Env Cooperator
+live.training.bw.coop.email=bwcawcooperator@gmail.com
+live.training.bw.coop.pw=8D498ED5CBDDFEB3ADD0035FD426850D
+#Training env URL
+live.training.orms.url=http://training2.reserveamerica.com/IndexOfLinks.do
+live.training.web.bw.url=http://bwcawtrain.reserveamerica.com
+#Training user account;
+live.training.orms.cm.user=ra-productionSanity
+live.training.orms.cm.pw=D909759CB0FA6AB74741F35C739D14A1
+live.training.orms.adm.user=ra-productionSanity
+live.training.orms.adm.pw=D909759CB0FA6AB74741F35C739D14A1
+
+#RA Unified Search mode
+live.web.ra.unifiedsearch=true
+live.web.plw.unifiedsearch=false

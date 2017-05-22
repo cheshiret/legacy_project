@@ -1,0 +1,38 @@
+package com.activenetwork.qa.awo.testcases;
+
+import com.activenetwork.qa.awo.util.TestDriverUtil;
+import com.activenetwork.qa.awo.util.CSVLoader;
+import com.activenetwork.qa.testapi.util.TestProperty;
+import com.activenetwork.qa.awo.util.AwoUtil;
+
+public class TestcaseLoader {	
+//private static String defaultScript= com.activenetwork.qa.awo.
+//testcases.sanity.orms.LM_MIG_BasicSearchSanity
+//testcases.regression.basic.web.hf.customer.ForgetPassword
+
+//supportscripts.support.licensemgr.MergeCustomers
+//testcases.regression.advanced.web.search.unifiedsearch.mapviewsearchresult.BubblePhoto
+//supportscripts.qasetup.db.ResetPWForVeriFone
+//testcases.regression.advanced.orms.financial.finsession.site.EditOpeningFloat
+//testcases.sanity.orms.FM_NSSMidstayTransfer
+//testcases.regression.basic.orms.license.feeschedule.AddEditActivityFeeScheduleForActivityPrd
+//testcases.regression.basic.web.ra.MakeReservationWithoutUseFee
+//testcases.regression.basic.web.rec.MakeReservation_MapSearch_1
+//supportscripts.qasetup.db.
+//			.class.getName();
+	public static void main(String[] args) {
+		TestProperty.load(AwoUtil.TEST_PROPERTY);
+		String a = TestProperty.getProperty("csv.path");
+		String b = TestProperty.getProperty("csv.field.type");
+		System.out.println(a);
+		System.out.println(b);
+	       System.out.println("Working Directory = " +
+	               System.getProperty("user.dir") + "\\resources\\csv\\csvfolders\\test.csv");
+		//System.out.println(CSVLoader.tableArray("test.csv"));
+		
+//		TestDriverUtil.load(args, defaultScript);	
+//		String javaHome = System.getProperty("java.home");
+//		System.out.println(javaHome);
+	}
+}
+

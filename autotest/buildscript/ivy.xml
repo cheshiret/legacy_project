@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="1.0" >
+	<info organisation="org.activenetwork" module="functest4_awo" status="integration" revision="4.00"></info>
+	<dependencies>
+		<!--database-->
+		<dependency org="oracle" name="OracleJDBC" rev="10.2.0.4.0"/>
+		<dependency org="mysql" name="mysql-connector-java" rev="5.1.21"/>
+		
+		<!--Message Queue-->
+		<dependency org="javax.jms" name="jms-api" rev="1.1-rev-1" transitive="false" />
+		<dependency org="com.sun.messaging.mq" name="imq" rev="4.4.2" transitive="false" />
+		<dependency org="org.apache.activemq" name="activemq-all" rev="5.7.0" transitive="false"/>
+		
+		<!--email-->
+		<dependency org="javax.mail" name="mail" rev="1.4.5" transitive="false" />
+		
+		<!--PDF/Excel/XML parsing-->
+		<dependency org="org.apache.pdfbox" name="pdfbox" rev="1.7.0" transitive="false" />
+		<dependency org="org.apache.pdfbox" name="fontbox" rev="1.7.0" transitive="false" />
+		<dependency org="org.apache.pdfbox" name="jempbox" rev="1.7.0" transitive="false" />
+		<dependency org="com.itextpdf" name="itextpdf" rev="5.3.0" transitive="false" />
+		<dependency org="org.apache.poi" name="poi" rev="3.8" transitive="false" />
+		<dependency org="dom4j" name="dom4j" rev="1.6.1" transitive="false" />
+		<dependency org="xml-apis" name="xml-apis" rev="1.3.04" transitive="false" />
+		<dependency org="xalan" name="xalan" rev="2.7.1" transitive="false" />
+		<dependency org="xalan" name="serializer" rev="2.7.1" transitive="false"/>
+		<dependency org="xerces" name="xercesImpl" rev="2.9.1" transitive="false" />	
+		
+		<!--SSH/FTP/Telnet-->
+		<dependency org="com.jcraft" name="jsch" rev="0.1.48" transitive="false" />	
+		<dependency org="commons-net" name="commons-net" rev="1.4.0" transitive="false" />
+			
+		<!--Httpclient-->
+		<dependency org="org.apache.httpcomponents" name="httpclient" transitive="false" rev="4.2.1"/>
+		<dependency org="org.apache.httpcomponents" name="httpcore" transitive="false" rev="4.2.1"/>
+		<dependency org="org.apache.httpcomponents" name="httpmime" transitive="false" rev="4.2.1"/>
+		
+		<!--Unit test and Utilities-->
+		<dependency org="junit" name="junit" rev="4.8.1" transitive="false"/>
+		<dependency org="org.testng" name="testng" rev="6.0.1" transitive="false"/>
+		<dependency org="com.google.guava" name="guava" rev="11.0.2" transitive="false"/>
+		<dependency org="commons-io" name="commons-io" rev="2.2" transitive="false"/>		
+		<dependency org="net.java.dev.jna" name="jna" rev="3.4.0" transitive="false"/>
+		<dependency org="net.java.dev.jna" name="platform" rev="3.4.0" transitive="false"/>
+			
+		<!--logging-->
+		<dependency org="log4j" name="log4j" rev="1.2.14"/>	
+		
+		<!--Unicode library-->
+		<dependency org="com.ibm.icu" name="icu4j" rev="49.1" transitive="false" />
+
+		<!--TPTP datapool dependencies-->
+		<dependency org="org.eclipse.core" name="org.eclipse.core.runtime" rev="3.6.0.v20100505"/>
+		<dependency org="org.eclipse.emf" name="org.eclipse.emf.common" rev="2.6.0.v20100614-1136"/>
+		<dependency org="org.eclipse.emf" name="org.eclipse.emf.ecore" rev="2.6.0.v20100614-1136"/>
+		<dependency org="org.eclipse.emf" name="org.eclipse.emf.ecore.xmi" rev="2.5.0.v20100521-1846"/>
+		<dependency org="org.eclipse.equinox" name="org.eclipse.equinox.common" rev="3.6.0.v20100503"/>
+		
+		<!--OPENCSV, updated by tchen-->
+		<dependency org="net.sf.opencsv" name="opencsv" rev="2.3" />
+		<!--ReportNG added by tchen-->
+		<dependency org="org.uncommons" name="reportng" rev="1.1.4" />
+		<!--Jsoup added by tchen-->
+		<dependency org="org.jsoup" name="jsoup" rev="1.7.3" />
+		<!--Crawljax added by tchen-->
+		<dependency org="com.crawljax" name="crawljax-core" rev="3.5.1" />
+		
+
+	</dependencies>
+</ivy-module>

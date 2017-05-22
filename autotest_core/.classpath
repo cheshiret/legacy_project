@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="java"/>
+	<classpathentry kind="lib" path="lib/autoitx.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.tptp.platform.models_4.6.102.v201101211050.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.tptp.platform.models.hierarchy_4.7.2.v201101211050.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=functest4_core&amp;ivyXmlPath=buildscript%2Fivy.xml&amp;confs=*&amp;ivySettingsPath=buildscript%2Fivysettings.xml&amp;loadSettingsOnDemand=false&amp;ivyUserDir=&amp;propertyFiles="/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ormsclient"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

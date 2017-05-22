@@ -1,0 +1,22 @@
+<ivysettings>
+	<property name="ivy.os.classifier" value="windows"/>
+	<properties file="${ivy.project.dir}/buildScript/local.properties"/>
+	<properties file="${ivy.project.dir}/buildScript/module.properties"/>
+	<property name="awo.repository.url" value="http://awotordevbld01.dev.activenetwork.com:8081" />
+	<settings defaultResolver="chained"/>
+	<resolvers>
+		<chain name="chained" returnFirst="true">
+			<filesystem name="libraries">
+				<artifact pattern="${ivy.default.ivy.user.dir}/repository/[artifact]-[revision](-[classifier]).[ext]"/>
+			</filesystem>
+			<url name="shared-mvn" m2compatible="true">
+				<ivy pattern="${awo.repository.url}/artifactory/libs-releases-local/[organisation]/[module]/[revision]/ivy-[revision].xml"/>
+				<artifact pattern="${awo.repository.url}/artifactory/libs-releases-local/[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]"/>
+			</url>
+			<ibiblio name="shared" m2compatible="true" root="${awo.repository.url}/artifactory/repo"/>
+			<ibiblio name="release" m2compatible="true" root="${awo.repository.url}/artifactory/libs-releases-local"/>
+			<ibiblio name="snapshot" m2compatible="true" root="${awo.repository.url}/artifactory/libs-snapshots-local"/>
+			<ibiblio name="public" m2compatible="true" />
+		</chain>
+	</resolvers>
+</ivysettings>

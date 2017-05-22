@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=functest4_awo&amp;ivyXmlPath=buildscript%2Fivy.xml&amp;confs=*&amp;ivySettingsPath=buildscript%2Fivysettings.xml&amp;loadSettingsOnDemand=false&amp;ivyUserDir=&amp;propertyFiles="/>
+	<classpathentry combineaccessrules="false" kind="src" path="/functest4_core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/functest4_selenium_driver"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ormsclient"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/autoitx.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/org.eclipse.tptp.platform.models.hierarchy_4.7.2.v201101211050.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/org.eclipse.tptp.platform.models_4.6.102.v201101211050.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/spirateamv4x.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/sshauth.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/Migrtest/lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/SikuliX/sikuli-api-1.0.2-standalone.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/SikuliX/sikuli-java.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/SikuliX/sikuli-slides-api-1.5.0.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/antlr/antlr-4.4-complete.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/antlr/antlrworks-1.5.jar"/>
+	<classpathentry kind="lib" path="D:/AWOWorkspace/antlr/ST-4.0.8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

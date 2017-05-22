@@ -1,0 +1,12 @@
+--Payment type with visa as credit card group
+alter session set current_schema=live_KY;
+update F_PMT_TYPE_LOC set visible=0 where  loc_id=90800 and pmt_type_id=81054 and pmt_grp_id!=3;
+insert into F_PMT_TYPE_LOC(ID, PMT_TYPE_ID, LOC_ID, PMT_GRP_ID, pmt_rfnd_type, visible, deflt_pmt_type)
+    values (get_sequence('F_PMT_TYPE_LOC'),  81054, 90800, 3, 0, 1, 0);
+Insert into F_PMT_TYPE_LOC_ATTR (ID,PMT_TYPE_LOC_ID,ATTR_ID,VALUE) 
+ SELECT get_sequence('F_PMT_TYPE_LOC_ATTR'), id, 93602, null FROM f_pmt_type_loc where pmt_type_id=81054 and loc_id=90800 and pmt_grp_id=3 and visible=1 and pmt_rfnd_type=0;
+Insert into F_PMT_TYPE_LOC_ATTR (ID,PMT_TYPE_LOC_ID,ATTR_ID,VALUE) 
+ SELECT get_sequence('F_PMT_TYPE_LOC_ATTR'), id, 93603, null FROM f_pmt_type_loc where pmt_type_id=81054 and loc_id=90800 and pmt_grp_id=3 and visible=1 and pmt_rfnd_type=0;
+Insert into F_PMT_TYPE_LOC_ATTR (ID,PMT_TYPE_LOC_ID,ATTR_ID,VALUE) 
+ SELECT get_sequence('F_PMT_TYPE_LOC_ATTR'), id, 93604, null FROM f_pmt_type_loc where pmt_type_id=81054 and loc_id=90800 and pmt_grp_id=3 and visible=1 and pmt_rfnd_type=0;
+commit;
